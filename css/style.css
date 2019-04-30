@@ -2500,6 +2500,7 @@ body {
   }
   .wrapper section.reasons .content p {
     font-size: 18px;
+    height: 156px;
   }
   .wrapper section.reasons .content p b {
     font-size: 30px;
@@ -2508,6 +2509,86 @@ body {
     margin-top: 30px;
   }
   .wrapper section.reasons .content .slider_count {
-    margin-top: 255px;
+    top: 228px;
+  }
+  .wrapper section.next_reasons .content {
+    z-index: 2;
+    background-color: #F8FAFC;
+  }
+  .wrapper section.next_reasons .content .and_yet {
+    width: 60px;
+    height: 94px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  .wrapper section.next_reasons .content .and_yet:before {
+    width: 90px;
+    height: 90px;
+    border: 20px solid #01ac6a;
+    right: -14px;
+    bottom: 18px;
+  }
+  .wrapper section.next_reasons .content .and_yet:after {
+    top: 76px;
+    right: 14px;
+    left: auto;
+    z-index: -1;
+  }
+  .wrapper section.next_reasons .content .and_yet h1 {
+    font-size: 130px;
+    width: 60px;
+    line-height: 108px;
+    height: 94px;
+  }
+  .wrapper section.next_reasons .content .and_yet h1:before {
+    font-size: 30px;
+    width: 90px;
+    height: 24px;
+  }
+  .wrapper section.next_reasons .content .and_yet h1:after {
+    width: 105px;
+    height: 38px;
+    color: #202020;
+    font-family: Circe;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  .wrapper section.next_reasons .content .row .col {
+    width: calc(50% - 30px);
+  }
+  .wrapper section.next_reasons .content .row .col p.num {
+    font-size: 50px;
+    top: 35px;
+  }
+  .wrapper section.next_reasons .content .row .col .right .img {
+    margin-bottom: 80px;
+  }
+  .wrapper section.next_reasons .content .row .col .right p {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+  }
+  .wrapper section.next_reasons .content .block .col .text p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .wrapper section.next_reasons .content .block .col .text p b {
+    font-size: 20px;
+  }
+  .wrapper section.form .content .block::before {
+    content: none;
+  }
+  .wrapper section.form .content .block p.one {
+    color: #ffffff;
+    font-family: Circe;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+  .wrapper section.form .content .block p.two {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
   }
 }

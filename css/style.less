@@ -6,7 +6,7 @@
 }
 @font-face {
   font-family: "Circe - Regular";
-  src: url("../fonts/Circe-Regular.ttf");
+  src: url("../fonts/Circe-Regular.ttf"); 
   font-weight: normal;
   font-style: normal;
 }
@@ -2700,6 +2700,7 @@ body {
         .content{
           p{
             font-size: 18px;
+            height: 156px;
             b{
               font-size: 30px;
             }
@@ -2708,12 +2709,110 @@ body {
             margin-top: 30px;
           }
           .slider_count{
-            margin-top: 255px;
+            top: 228px;
           }
         }
       }
       &.next_reasons{
-        
+        .content{
+          z-index: 2;
+          background-color: #F8FAFC;
+          .and_yet{
+            width: 60px;
+            height: 94px;
+            left: 50%;
+            transform: translate(-50%,0);
+            &:before{
+              width: 90px;
+              height: 90px;
+              border: 20px solid #01ac6a;
+              right: -14px;
+              bottom: 18px;
+            }
+            &:after{
+              top: 76px;
+              right: 14px;
+              left: auto;
+              z-index: -1;
+            }
+            h1{
+              font-size: 130px;
+              width: 60px;
+              line-height: 108px;
+              height: 94px;
+              &:before{
+                font-size: 30px;
+                width: 90px;
+                height: 24px;
+              }
+              &:after{
+                width: 105px;
+                height: 38px;
+                color: #202020;
+                font-family: Circe;
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 24px;
+              }
+            }
+          }
+          .row{
+            .col{
+              width: ~'calc(50% - 30px)';
+              p.num{
+                font-size: 50px;
+                top: 35px;
+              }
+              .right{
+                .img{
+                  margin-bottom: 80px;
+                }
+                p{
+                  font-size: 14px;
+                  line-height: 18px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+          .block{
+            .col{
+              .text{
+                p{
+                  font-size: 14px;
+                  line-height: 20px;
+                  b{
+                    font-size: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.form{
+        .content{
+          .block{
+            &::before{
+              content: none;
+
+            }
+            p{
+              &.one{
+                color: #ffffff;
+                font-family: Circe;
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 40px;
+              }
+              &.two{
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 28px;
+              }
+            }
+          }
+        }
       }
     }
   }
