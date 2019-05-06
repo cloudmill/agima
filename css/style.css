@@ -83,6 +83,11 @@ body {
   cursor: pointer;
   position: relative;
 }
+.wrapper header .content .menu .open_menu:hover:after,
+.wrapper header .content .menu .open_menu:hover:before {
+  width: 38px;
+  background-color: #00ac6a;
+}
 .wrapper header .content .menu .open_menu:before {
   content: "";
   display: block;
@@ -91,6 +96,7 @@ body {
   left: 0;
   height: 5px;
   width: 38px;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   background-color: #000;
 }
 .wrapper header .content .menu .open_menu:after {
@@ -98,12 +104,14 @@ body {
   display: block;
   position: absolute;
   bottom: 0;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   left: 0;
   width: 25px;
   height: 5px;
   background-color: #000;
 }
 .wrapper header .content .menu .menu_list {
+  margin-top: -100%;
   opacity: 0;
   transform: translate(0, -100%);
   position: absolute;
@@ -122,6 +130,7 @@ body {
 .wrapper section.first {
   height: 700px;
   background: url(../images/first_section_bg_left.png) no-repeat left bottom;
+  overflow: hidden;
 }
 .wrapper section.first .content {
   height: 100%;
@@ -303,6 +312,12 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 36px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrapper section.help .content button:hover {
+  background-color: #f1bf44;
+  color: white;
 }
 .wrapper section.process {
   position: relative;
@@ -882,6 +897,25 @@ body {
   background: url(../images/str_white.png) no-repeat 100% 100%;
   width: 51px;
   height: 16px;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrapper section.services .content .left .slick-next:before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  position: absolute;
+  transform: translate(0, -50%);
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  background-color: #fff;
+}
+.wrapper section.services .content .left .slick-next:hover {
+  transform: translate(10px, 0);
+}
+.wrapper section.services .content .left .slick-next:hover:before {
+  transform: translate(-10px, -50%);
 }
 .wrapper section.services .content .left .slick-dots {
   display: flex;
@@ -893,15 +927,20 @@ body {
   left: 0;
 }
 .wrapper section.services .content .left .slick-dots li {
-  width: 10px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: #008d57;
+  border: 1px solid #008d57;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   border-radius: 50%;
   margin-right: 17px;
+  cursor: pointer;
+}
+.wrapper section.services .content .left .slick-dots li:hover {
+  border: 1px solid #fff;
 }
 .wrapper section.services .content .left .slick-dots li.slick-active {
+  border: 1px solid #fff;
   background-color: #ffffff;
 }
 .wrapper section.services .content .left .slick-dots li button {
@@ -952,10 +991,24 @@ body {
   height: 18px;
   display: block;
   position: absolute;
+  z-index: 2;
   bottom: 100%;
   margin-bottom: 7px;
   background: url(../images/quest.png) no-repeat 100% 100%;
   right: -7px;
+}
+.wrapper section.services .content .right ul li b .quest .hide_block {
+  position: absolute;
+  padding: 25px;
+  display: none;
+  background-color: #fff;
+  font-family: "Circe";
+  font-size: 14px;
+  color: #aaaaaa;
+  bottom: 50%;
+  right: 50%;
+  width: 210px;
+  z-index: -2;
 }
 .wrapper section.partners {
   margin-top: 110px;
@@ -1555,10 +1608,34 @@ body {
   font-weight: 400;
   line-height: 36px;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: relative;
+}
+.wrapper section.form .content .form_block form .input.file_load label:hover {
+  border: 2px solid #01ac6a;
+}
+.wrapper section.form .content .form_block form .input.file_load label:hover:before {
+  opacity: 0;
+}
+.wrapper section.form .content .form_block form .input.file_load label:hover:after {
+  opacity: 1;
+}
+.wrapper section.form .content .form_block form .input.file_load label:after {
+  content: '';
+  display: block;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 22px;
+  height: 19px;
+  background: url(../images/file_green.png) no-repeat 100% 100%;
+  margin-right: 13px;
+  position: absolute;
+  left: 20px;
+  opacity: 0;
 }
 .wrapper section.form .content .form_block form .input.file_load label:before {
   content: '';
   display: block;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 22px;
   height: 19px;
   background: url(../images/file.png) no-repeat 100% 100%;
@@ -1653,6 +1730,9 @@ body {
   align-items: center;
   position: relative;
 }
+.wrapper section.form .content .form_block form .input #dont_have_site + label:hover:before {
+  border: 1px solid #f1bf44;
+}
 .wrapper section.form .content .form_block form .input #dont_have_site + label::before {
   content: '';
   display: block;
@@ -1660,6 +1740,7 @@ body {
   height: 25px;
   border: 1px solid #d9d9d9;
   margin-right: 15px;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .wrapper section.form .content .form_block form .input #dont_have_site + label:after {
   content: '';
@@ -1686,8 +1767,12 @@ body {
   position: relative;
   line-height: 24px;
 }
+.wrapper section.form .content .form_block form .input #pp + label:hover:before {
+  border: 1px solid #f1bf44;
+}
 .wrapper section.form .content .form_block form .input #pp + label::before {
   content: '';
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   display: block;
   position: absolute;
   width: 25px;
@@ -1709,6 +1794,12 @@ body {
   opacity: 0;
   background: url(../images/check.png) no-repeat 100% 100%;
 }
+.wrapper section.form .content .form_block form .input #pp + label a {
+  text-decoration: none;
+}
+.wrapper section.form .content .form_block form .input #pp + label a:hover {
+  text-decoration: underline;
+}
 .wrapper section.form .content .form_block form > .row {
   justify-content: center;
   width: 100%;
@@ -1718,7 +1809,7 @@ body {
 .wrapper section.form .content .form_block form button {
   width: 176px;
   height: 60px;
-  cursor: pointer;
+  border: none;
   display: flex;
   color: #ffffff;
   align-items: center;
@@ -1729,6 +1820,12 @@ body {
   line-height: 36px;
   margin: auto;
   background-color: #01ac6a;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrapper section.form .content .form_block form button:hover {
+  background-color: #f1bf44;
+  color: white;
 }
 .wrapper section .slider_count {
   display: none;
@@ -1821,6 +1918,11 @@ body {
   height: 15px;
   background: url(../images/copyright.png) no-repeat 100% 100%;
   margin-bottom: 3px;
+}
+@media (max-width: 1440px) {
+  .wrapper section.help .content h1 {
+    font-size: 15vw;
+  }
 }
 @media (max-width: 1200px) {
   .content {
