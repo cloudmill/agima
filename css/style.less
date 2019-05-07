@@ -152,9 +152,15 @@ body {
       width: 100%;
       top: 0;
       left: 0;
+      display: none;
       background-color: #00ac6a;
       transition: @anim;
+      &.animated{
+        animation-duration: 0.6s;
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+      }
       &.active{
+        display: block;
       }
       .content{
         position: relative;
@@ -180,7 +186,26 @@ body {
           z-index: 3;
           justify-content: space-between;
           li{
+            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
             margin-bottom: 50px;
+            &:nth-child(1){
+              animation-delay: 0
+            }
+            &:nth-child(2){
+              animation-delay: 0.05s
+            }
+            &:nth-child(3){
+              animation-delay: 0.1s
+            }
+            &:nth-child(4){
+              animation-delay: 0.15s
+            }
+            &:nth-child(5){
+              animation-delay: 0.2s
+            }
+            &:nth-child(6){
+              animation-delay: 0.25s
+            }
             a{
               text-decoration: none;
               color: #ffffff;
@@ -225,7 +250,7 @@ body {
         background: url(../images/menu_a.png) no-repeat;
         background-size: contain;
         filter: brightness(0.9);
-        &:after{
+        .big{
           content: '';
           display: block;
           width: 56px;
@@ -236,7 +261,7 @@ body {
           top: 111px;
           right: 40px;
         }
-        &:before{
+        .small{
           content: '';
           display: block;
           width: 25px;
@@ -362,7 +387,7 @@ body {
               background-color: #eff2f2;
               left: -250px;
               z-index: 2;
-              &:before {
+              .gr_sm {
                 content: "";
                 display: block;
                 width: 14px;
@@ -614,7 +639,7 @@ body {
               left: -60px;
               z-index: -1;
               background: url(../images/support_1.png) no-repeat 100% 100%;
-              &:before {
+              .big {
                 content: "";
                 display: block;
                 position: absolute;
@@ -625,7 +650,7 @@ body {
                 left: 4px;
                 border-radius: 50%;
               }
-              &:after {
+              .small{
                 content: "";
                 display: block;
                 border-radius: 50%;
@@ -665,7 +690,7 @@ body {
                 font-family: "Circe - Regular";
                 display: block;
                 font-size: 18px;
-                &::before {
+                .big{
                   content: "";
                   display: block;
                   position: absolute;
@@ -678,7 +703,7 @@ body {
                   left: -55px;
                   z-index: -1;
                 }
-                &:after {
+                .small {
                   content: "";
                   display: block;
                   width: 14px;
@@ -752,7 +777,7 @@ body {
             font-size: 30px;
             line-height: 48px;
 
-            &:before {
+            .gr_sm {
               content: "";
               display: flex;
               position: absolute;
@@ -1563,7 +1588,7 @@ body {
     &.reasons {
       margin-top: 100px;
       position: relative;
-      &::before {
+      .left_fig {
         content: "";
         display: block;
         width: 380px;
@@ -1573,7 +1598,7 @@ body {
         bottom: -80px;
         left: -100px;
       }
-      &:after {
+      .gr_sm {
         content: "";
         display: block;
         position: absolute;
@@ -1842,7 +1867,7 @@ body {
     }
     &.form{
       position: relative;
-      &::before{
+      .word{
         content: '';
         display: block;
         width: 594px;
@@ -1852,8 +1877,7 @@ body {
         z-index: -1;
         right: 100px;
         top: 50%;
-        transform: translate(0,-50%);
-        margin-top: 350px;
+        margin-top: 120px;
       }
       &:after{
         position: absolute;
@@ -1869,7 +1893,7 @@ body {
         transform: translate(-50%,0);
       }
       .content{
-        &:before{
+        .big{
           content: '';
           display: block;
           width: 25px;
@@ -1881,7 +1905,7 @@ body {
           
           background-color: #01ac6a;
         }
-        &:after{
+        .small{
           content: '';
           display: block;
           position: absolute;
@@ -2377,6 +2401,10 @@ body {
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86)
 }
+.circle_fig{
+  transition: transform 2s;
+  transform: translate(0,0);
+}
 @media(max-width:1440px){
   .wrapper{
     section{
@@ -2707,10 +2735,10 @@ body {
         }
       }
       &.reasons{
-        &:after{
+        .gr_sm{
           content: none;
         }
-        &:before{
+        .left_fig{
           z-index: -1;
         }
         .content{
@@ -2927,13 +2955,13 @@ body {
           width: 106px;
           height: 102px;
           margin-left: -40px;
-          &:after{
+          .big{
             width: 21px;
             height: 21px;
             top: 43px;
             right: 14px;
           }
-          &:before{
+          .small{
             width: 10px;
             height: 10px;
             top: 71px;
@@ -3110,12 +3138,12 @@ body {
                 top: 18px;
                 width: 170px;
                 height: 239px;
-                &::before{
+                .big{
                   width: 29px;
                   height: 29px;
                   top: 50px;
                 }
-                &:after{
+                .small{
                   width: 12px;
                   height: 12px;
                   top: 24px;
@@ -3408,14 +3436,14 @@ body {
       &.form{
         overflow: hidden;
         .content{
-          &:before{
+          .big{
             top: 420px;
             right: 20px;
             width: 16px;
             height: 15px;
             z-index: 3;
           }
-          &:after{
+          .after{
             width: 53px;
             height: 53px;
             top: 350px;

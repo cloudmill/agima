@@ -153,8 +153,16 @@ body.overflow {
   width: 100%;
   top: 0;
   left: 0;
+  display: none;
   background-color: #00ac6a;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrapper header .menu_list.animated {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrapper header .menu_list.active {
+  display: block;
 }
 .wrapper header .menu_list .content {
   position: relative;
@@ -182,7 +190,26 @@ body.overflow {
   justify-content: space-between;
 }
 .wrapper header .menu_list .content ul li {
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   margin-bottom: 50px;
+}
+.wrapper header .menu_list .content ul li:nth-child(1) {
+  animation-delay: 0;
+}
+.wrapper header .menu_list .content ul li:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.wrapper header .menu_list .content ul li:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.wrapper header .menu_list .content ul li:nth-child(4) {
+  animation-delay: 0.15s;
+}
+.wrapper header .menu_list .content ul li:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.wrapper header .menu_list .content ul li:nth-child(6) {
+  animation-delay: 0.25s;
 }
 .wrapper header .menu_list .content ul li a {
   text-decoration: none;
@@ -226,7 +253,7 @@ body.overflow {
   background-size: contain;
   filter: brightness(0.9);
 }
-.wrapper header .menu_list .a:after {
+.wrapper header .menu_list .a .big {
   content: '';
   display: block;
   width: 56px;
@@ -237,7 +264,7 @@ body.overflow {
   top: 111px;
   right: 40px;
 }
-.wrapper header .menu_list .a:before {
+.wrapper header .menu_list .a .small {
   content: '';
   display: block;
   width: 25px;
@@ -358,7 +385,7 @@ body.overflow {
   left: -250px;
   z-index: 2;
 }
-.wrapper section.first .content .img .layer:nth-child(7):before {
+.wrapper section.first .content .img .layer:nth-child(7) .gr_sm {
   content: "";
   display: block;
   width: 14px;
@@ -601,7 +628,7 @@ body.overflow {
   z-index: -1;
   background: url(../images/support_1.png) no-repeat 100% 100%;
 }
-.wrapper section.order .content .block .img .bg:before {
+.wrapper section.order .content .block .img .bg .big {
   content: "";
   display: block;
   position: absolute;
@@ -612,7 +639,7 @@ body.overflow {
   left: 4px;
   border-radius: 50%;
 }
-.wrapper section.order .content .block .img .bg:after {
+.wrapper section.order .content .block .img .bg .small {
   content: "";
   display: block;
   border-radius: 50%;
@@ -653,7 +680,7 @@ body.overflow {
   display: block;
   font-size: 18px;
 }
-.wrapper section.order .content .block .img p span::before {
+.wrapper section.order .content .block .img p span .big {
   content: "";
   display: block;
   position: absolute;
@@ -666,7 +693,7 @@ body.overflow {
   left: -55px;
   z-index: -1;
 }
-.wrapper section.order .content .block .img p span:after {
+.wrapper section.order .content .block .img p span .small {
   content: "";
   display: block;
   width: 14px;
@@ -735,7 +762,7 @@ body.overflow {
   font-size: 30px;
   line-height: 48px;
 }
-.wrapper section.work .content .block .right:before {
+.wrapper section.work .content .block .right .gr_sm {
   content: "";
   display: flex;
   position: absolute;
@@ -1521,7 +1548,7 @@ body.overflow {
   margin-top: 100px;
   position: relative;
 }
-.wrapper section.reasons::before {
+.wrapper section.reasons .left_fig {
   content: "";
   display: block;
   width: 380px;
@@ -1531,7 +1558,7 @@ body.overflow {
   bottom: -80px;
   left: -100px;
 }
-.wrapper section.reasons:after {
+.wrapper section.reasons .gr_sm {
   content: "";
   display: block;
   position: absolute;
@@ -1783,7 +1810,7 @@ body.overflow {
 .wrapper section.form {
   position: relative;
 }
-.wrapper section.form::before {
+.wrapper section.form .word {
   content: '';
   display: block;
   width: 594px;
@@ -1793,8 +1820,7 @@ body.overflow {
   z-index: -1;
   right: 100px;
   top: 50%;
-  transform: translate(0, -50%);
-  margin-top: 350px;
+  margin-top: 120px;
 }
 .wrapper section.form:after {
   position: absolute;
@@ -1809,7 +1835,7 @@ body.overflow {
   background-color: #01ac6a;
   transform: translate(-50%, 0);
 }
-.wrapper section.form .content:before {
+.wrapper section.form .content .big {
   content: '';
   display: block;
   width: 25px;
@@ -1820,7 +1846,7 @@ body.overflow {
   border-radius: 50%;
   background-color: #01ac6a;
 }
-.wrapper section.form .content:after {
+.wrapper section.form .content .small {
   content: '';
   display: block;
   position: absolute;
@@ -2292,6 +2318,10 @@ body.overflow {
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
+.circle_fig {
+  transition: transform 2s;
+  transform: translate(0, 0);
+}
 @media (max-width: 1440px) {
   .wrapper section.help .content h1 {
     font-size: 15vw;
@@ -2556,10 +2586,10 @@ body.overflow {
   .wrapper section.partners .content .slider_count span {
     color: #01ac6a;
   }
-  .wrapper section.reasons:after {
+  .wrapper section.reasons .gr_sm {
     content: none;
   }
-  .wrapper section.reasons:before {
+  .wrapper section.reasons .left_fig {
     z-index: -1;
   }
   .wrapper section.reasons .content .slider_count {
@@ -2750,13 +2780,13 @@ body.overflow {
     height: 102px;
     margin-left: -40px;
   }
-  .wrapper header .menu_list .a:after {
+  .wrapper header .menu_list .a .big {
     width: 21px;
     height: 21px;
     top: 43px;
     right: 14px;
   }
-  .wrapper header .menu_list .a:before {
+  .wrapper header .menu_list .a .small {
     width: 10px;
     height: 10px;
     top: 71px;
@@ -2909,12 +2939,12 @@ body.overflow {
     width: 170px;
     height: 239px;
   }
-  .wrapper section.order .content .block .img .bg::before {
+  .wrapper section.order .content .block .img .bg .big {
     width: 29px;
     height: 29px;
     top: 50px;
   }
-  .wrapper section.order .content .block .img .bg:after {
+  .wrapper section.order .content .block .img .bg .small {
     width: 12px;
     height: 12px;
     top: 24px;
@@ -3160,14 +3190,14 @@ body.overflow {
   .wrapper section.form {
     overflow: hidden;
   }
-  .wrapper section.form .content:before {
+  .wrapper section.form .content .big {
     top: 420px;
     right: 20px;
     width: 16px;
     height: 15px;
     z-index: 3;
   }
-  .wrapper section.form .content:after {
+  .wrapper section.form .content .after {
     width: 53px;
     height: 53px;
     top: 350px;

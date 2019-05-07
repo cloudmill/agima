@@ -88,17 +88,28 @@ custom = function(){
         quest.addClass('hide')
         quest.parent().removeClass('active')
     })
-    $('.menu_list').hide()
     $('.open_menu, .menu_list ul li a').click(function(e){
         $('.open_menu').toggleClass('opened')
         $('body').toggleClass('overflow')
         if($(this).attr('href') == 0){
             e.preventDefault()
         }
-        $('.menu_list').fadeIn(300)
-        $('.menu_list.active').fadeOut(300)
-        $('.menu_list').toggleClass('active');
+        $('.menu_list').toggleClass('fadeOut')
+        $('.menu_list').toggleClass('fadeIn')
+        $('.menu_list h1').toggleClass('fadeInLeft')
+        $('.menu_list h1').toggleClass('fadeOutLeft')
+        $('.menu_list ul li').toggleClass('fadeInRight')
+        $('.menu_list ul li').toggleClass('fadeOutRight')
         $('.menu_list').css('height',$(window).height());
+        if($('.menu_list').hasClass('fadeIn')){
+            $('.menu_list').toggleClass('active');
+        }
+        else{
+            setTimeout(() => {
+                $('.menu_list').toggleClass('active');
+            }, 600);
+        }
+        
     })
     $('form').submit(function(e){
         var error = false,
@@ -119,6 +130,14 @@ custom = function(){
         }
         if(error) return false;
     })
+    function circle_fig(){
+        for(i =0;i<$('.circle_fig').length;i++){
+            translate = Math.random()*10+'px,'+Math.random()*10;
+            item = document.getElementsByClassName('circle_fig')
+            item[i].style.transform = 'translate('+translate+'px)'
+        }
+    }
+    setInterval(circle_fig,1000)
 };
 (function(){
     sliders();
@@ -128,28 +147,28 @@ custom = function(){
 $(window).on('load',function(){
     $('.preload').fadeOut(300);
 
-    $('header .content').addClass('animated fadeInDown');
+    $('header .content .logo').addClass('animated fadeInDown');
     $('.first .content .img .layer').eq(0).addClass('animated fadeInDown');
+    $('.first .content .img .layer').eq(2).addClass('animated fadeInDown');
     $('.first .content .img .layer').eq(4).addClass('animated fadeInDown');
+    $('.help .content p').addClass('animated fadeInUp')
 
-
-    $('.first .content .img .layer').eq(5).addClass('animated fadeIn');
-
+    $('.help .content h1').addClass('animated fadeIn')
     $('.first .content .img .layer').eq(1).addClass('animated fadeInRight');
-
     $('.first .content h1').addClass('animated fadeInLeft')
+    $('.first .content .img .layer').eq(5).addClass('animated zoomIn');
 })
 var value_scroll = 0;
 $(document).on('scroll',function(){
     var scroll = $(document).scrollTop(),
     height = $(window).height()
     down = value_scroll < scroll ? true : false;
-
     var animated = {
         'fadeInUp' : [
             $('.process .block .item .img'),
-            $('header .content'),
+            $('header  .content .logo'),
             $('.first .content .img .layer').eq(0),
+            $('.first .content .img .layer').eq(2),
             $('.first .content .img .layer').eq(4),
             $('.services .content .right ul li'),
             $('.partners .content .block .item .img'),
@@ -161,21 +180,20 @@ $(document).on('scroll',function(){
             $('.support .content .block ul li'),
             $('.work .content p.all_time'),
             $('.work .content .block .right span'),
-            $('.order .content .block .text p')
-            
+            $('.order .content .block .text p'),
+            $('.help .content button'),
+            $('.help .content p'),
         ],
         'fadeIn':[
             $('.process .block .item .block .one'),
             $('.process .block .item .block .num'),
-            $('.first .content .img .layer').eq(5),
             $('.partners .content .block .item p'),
             $('.reasons .content .block .item .text'),
             $('.next_reasons .content .and_yet .line'),
             $('.next_reasons .content .row .col p.num'),
             $('.reasons .content p'),
             $('.services .content .left .item h1'),
-            
-            
+            $('.help .content h1'),
         ],
         'fadeInUp fadeOut':[
             $('.process .block .item .block .two'),
@@ -184,6 +202,8 @@ $(document).on('scroll',function(){
             $('.reasons .content .block .item .text a'),
             $('.next_reasons .content .row .col .right p'),
             $('.next_reasons .content .block .col .text'),
+            $('.form .content .form_block form .input'),
+            $('.form .content .form_block form button')
         ],
         'fadeInRight':[
             $('.first .content .img .layer').eq(1),
@@ -191,8 +211,9 @@ $(document).on('scroll',function(){
             $('.next_reasons .content .and_yet h1 span.right'),
             $('.partners .content .row .col p'),
             $('.work .content .block .right'),
-            $('.form .content .block p.two')
-            
+            $('.form .content .block p.two'),
+            $('.support .content .block .right'),
+            $('.form .word')
         ],
         'fadeInLeft':[
             $('.first .content h1'),
@@ -202,9 +223,15 @@ $(document).on('scroll',function(){
             $('.services .content .left .item p'),
             $('.work .content p.all_time span.time'),
             $('.work .content .block .left'),
-            $('.form .content .block p.one')
+            $('.form .content .block p.one'),
+            $('.process .content h1'),
+            $('.support .content p.title'),
+            $('.support .content .block .left'),
+            $('.reasons .left_fig')
         ],
-
+        'zoomIn':[
+            $('.first .content .img .layer').eq(5),
+        ]
     }
     for(anim in animated){
         var an_out_up = 'fadeOutUp',
@@ -234,6 +261,12 @@ $(document).on('scroll',function(){
             an_out_down = 'fadeOutLeft';
             an_in_up = 'fadeInLeft';
             an_in_down = 'fadeInLeft';
+        }
+        if(anim == 'zoomIn'){
+            an_out_up = 'zoomOut';
+            an_out_down = 'zoomOut';
+            an_in_up = 'zoomIn';
+            an_in_down = 'zoomIn';
         }
         for(i=0;i<animated[anim].length;i++){
             for(j=0;j<animated[anim][i].length;j++){
