@@ -1965,7 +1965,7 @@ body.overflow {
   background: url(../images/file_green.png) no-repeat 100% 100%;
   margin-right: 13px;
   position: absolute;
-  left: 20px;
+  left: 12px;
   opacity: 0;
 }
 .wrapper section.form .content .form_block form .input.file_load label:before {
