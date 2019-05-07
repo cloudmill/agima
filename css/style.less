@@ -44,6 +44,7 @@ body {
   outline: none;
 }
 .wrapper {
+  overflow: hidden;
   header {
     position: absolute;
     z-index: 4;
@@ -773,7 +774,7 @@ body {
             }
           }
         }
-        > p {
+        p.all_time {
           /* Style for "Наши партн" */
           color: #202020;
           font-family: Circe;
@@ -1773,7 +1774,7 @@ body {
           position: absolute;
           bottom: 100%;
           margin-bottom: 97px;
-          &::before {
+          .circle {
             content: "";
             display: block;
             position: absolute;
@@ -1785,7 +1786,7 @@ body {
             right: -21px;
             border-radius: 50%;
           }
-          &:after {
+          .line {
             content: "";
             display: block;
             width: 2px;
@@ -1808,8 +1809,7 @@ body {
             font-weight: 400;
             line-height: 210px;
             position: relative;
-            &::before {
-              content: "И еще";
+            span.left {
               width: 170px;
               position: absolute;
               top: -24px;
@@ -1822,7 +1822,7 @@ body {
               font-family: "Circe - Extra Bold";
               font-weight: 700;
             }
-            &:after {
+            span.right {
               content: "если не убедили";
               width: 355px;
               display: block;
@@ -2325,6 +2325,58 @@ body {
     }
   }
 }
+.preload{
+  position: fixed;
+  z-index: 100;
+  background-color:  #f1bf44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 1200px;
+  .object{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    animation: rotate 1s infinite;
+    .circle{
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: #008d57;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%,0);
+      border-radius: 50%;
+      &:nth-child(even){
+        background-color: #000;
+        top: 50%;
+        left: 0;
+        transform: translate(0,-50%);
+      }
+      &:nth-child(3){
+        top: auto;
+        bottom: 0;
+      }
+      &:nth-child(2){
+          left: auto;
+          right: 0;
+      }
+    }
+    @keyframes rotate {
+      0%{
+        transform: rotate(0)
+      }
+      100%{
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+.animated {
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86)
+}
 @media(max-width:1440px){
   .wrapper{
     section{
@@ -2483,7 +2535,7 @@ body {
               background-color: #f4f7f7;
             }
           }
-          >p{
+          p.all_time{
             padding: 100px 50px;
           }
         }
@@ -3152,7 +3204,7 @@ body {
               }
             }
           }
-          >p{
+          p.all_time{
             font-size: 18px;
             line-height: 28px;
             &:before{
@@ -3285,14 +3337,14 @@ body {
             height: 94px;
             left: 50%;
             transform: translate(-50%,0);
-            &:before{
+            .circle{
               width: 90px;
               height: 90px;
               border: 20px solid #01ac6a;
               right: -14px;
               bottom: 18px;
             }
-            &:after{
+            .line{
               top: 76px;
               right: 14px;
               left: auto;
@@ -3303,12 +3355,12 @@ body {
               width: 60px;
               line-height: 108px;
               height: 94px;
-              &:before{
+              span.left{
                 font-size: 30px;
                 width: 90px;
                 height: 24px;
               }
-              &:after{
+              span.right{
                 width: 105px;
                 height: 38px;
                 color: #202020;

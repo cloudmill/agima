@@ -42,6 +42,9 @@ body.overflow {
 * {
   outline: none;
 }
+.wrapper {
+  overflow: hidden;
+}
 .wrapper header {
   position: absolute;
   z-index: 4;
@@ -752,7 +755,7 @@ body.overflow {
   margin-top: 20px;
   line-height: 30px;
 }
-.wrapper section.work .content > p {
+.wrapper section.work .content p.all_time {
   /* Style for "Наши партн" */
   color: #202020;
   font-family: Circe;
@@ -763,7 +766,7 @@ body.overflow {
   z-index: 3;
   padding: 100px 130px;
 }
-.wrapper section.work .content > p:before {
+.wrapper section.work .content p.all_time:before {
   content: "";
   display: flex;
   width: 304px;
@@ -774,13 +777,13 @@ body.overflow {
   z-index: -2;
   background: url(../images/a_white.png) no-repeat 100% 100%;
 }
-.wrapper section.work .content > p span {
+.wrapper section.work .content p.all_time span {
   color: #433b7d;
   font-family: "Circe - Extra Bold";
   font-weight: 700;
   line-height: 36px;
 }
-.wrapper section.work .content > p span.time {
+.wrapper section.work .content p.all_time span.time {
   top: 57px;
   content: "24/7";
   color: #e4ecec;
@@ -794,7 +797,7 @@ body.overflow {
   display: flex;
   align-items: flex-start;
 }
-.wrapper section.work .content > p span.time b {
+.wrapper section.work .content p.all_time span.time b {
   font-size: 60px;
   font-weight: 400;
   line-height: 36px;
@@ -1714,7 +1717,7 @@ body.overflow {
   bottom: 100%;
   margin-bottom: 97px;
 }
-.wrapper section.next_reasons .content .and_yet::before {
+.wrapper section.next_reasons .content .and_yet .circle {
   content: "";
   display: block;
   position: absolute;
@@ -1726,7 +1729,7 @@ body.overflow {
   right: -21px;
   border-radius: 50%;
 }
-.wrapper section.next_reasons .content .and_yet:after {
+.wrapper section.next_reasons .content .and_yet .line {
   content: "";
   display: block;
   width: 2px;
@@ -1750,8 +1753,7 @@ body.overflow {
   line-height: 210px;
   position: relative;
 }
-.wrapper section.next_reasons .content .and_yet h1::before {
-  content: "И еще";
+.wrapper section.next_reasons .content .and_yet h1 span.left {
   width: 170px;
   position: absolute;
   top: -24px;
@@ -1764,7 +1766,7 @@ body.overflow {
   font-family: "Circe - Extra Bold";
   font-weight: 700;
 }
-.wrapper section.next_reasons .content .and_yet h1:after {
+.wrapper section.next_reasons .content .and_yet h1 span.right {
   content: "если не убедили";
   width: 355px;
   display: block;
@@ -2238,6 +2240,58 @@ body.overflow {
   background: url(../images/copyright.png) no-repeat 100% 100%;
   margin-bottom: 3px;
 }
+.preload {
+  position: fixed;
+  z-index: 100;
+  background-color: #f1bf44;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 1200px;
+}
+.preload .object {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  animation: rotate 1s infinite;
+}
+.preload .object .circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #008d57;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 50%;
+}
+.preload .object .circle:nth-child(even) {
+  background-color: #000;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+}
+.preload .object .circle:nth-child(3) {
+  top: auto;
+  bottom: 0;
+}
+.preload .object .circle:nth-child(2) {
+  left: auto;
+  right: 0;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.animated {
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
 @media (max-width: 1440px) {
   .wrapper section.help .content h1 {
     font-size: 15vw;
@@ -2338,7 +2392,7 @@ body.overflow {
     width: calc(100% - 40px);
     background-color: #f4f7f7;
   }
-  .wrapper section.work .content > p {
+  .wrapper section.work .content p.all_time {
     padding: 100px 50px;
   }
   .wrapper section.support:before {
@@ -2940,11 +2994,11 @@ body.overflow {
     font-size: 14px;
     line-height: 21px;
   }
-  .wrapper section.work .content > p {
+  .wrapper section.work .content p.all_time {
     font-size: 18px;
     line-height: 28px;
   }
-  .wrapper section.work .content > p:before {
+  .wrapper section.work .content p.all_time:before {
     content: none;
   }
   .wrapper section.support .content p.title {
@@ -3048,14 +3102,14 @@ body.overflow {
     left: 50%;
     transform: translate(-50%, 0);
   }
-  .wrapper section.next_reasons .content .and_yet:before {
+  .wrapper section.next_reasons .content .and_yet .circle {
     width: 90px;
     height: 90px;
     border: 20px solid #01ac6a;
     right: -14px;
     bottom: 18px;
   }
-  .wrapper section.next_reasons .content .and_yet:after {
+  .wrapper section.next_reasons .content .and_yet .line {
     top: 76px;
     right: 14px;
     left: auto;
@@ -3067,12 +3121,12 @@ body.overflow {
     line-height: 108px;
     height: 94px;
   }
-  .wrapper section.next_reasons .content .and_yet h1:before {
+  .wrapper section.next_reasons .content .and_yet h1 span.left {
     font-size: 30px;
     width: 90px;
     height: 24px;
   }
-  .wrapper section.next_reasons .content .and_yet h1:after {
+  .wrapper section.next_reasons .content .and_yet h1 span.right {
     width: 105px;
     height: 38px;
     color: #202020;
