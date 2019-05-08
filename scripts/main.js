@@ -224,7 +224,7 @@ $(window).on('load',function(){
 
     $('header .content .logo').addClass('animated fadeInDown');
     $('.first .content .img .layer').eq(0).addClass('animated fadeInDown');
-    //$('.first .content .img .layer').eq(2).addClass('animated fadeInDown');
+    $('.first .content .img .layer').eq(2).addClass('animated fadeInDown');//
     $('.first .content .img .layer').eq(4).addClass('animated fadeInDown');
     $('.help .content p').addClass('animated fadeInUp')
 
@@ -232,7 +232,7 @@ $(window).on('load',function(){
     $('.first .content .img .layer').eq(1).addClass('animated fadeInRight');
     $('.first .content h1').addClass('animated fadeInLeft')
 
-    //$('.first .content .img .layer').eq(5).addClass('animated zoomIn');
+    $('.first .content .img .layer').eq(5).addClass('animated zoomIn');//
 })
 var value_scroll = 0;
 $(document).on('scroll',function(){
@@ -244,17 +244,17 @@ $(document).on('scroll',function(){
             $('.process .block .item .img'),
             $('header  .content .logo'),
             $('.first .content .img .layer').eq(0),
-            //$('.first .content .img .layer').eq(2),
+            $('.first .content .img .layer').eq(2),//
             $('.first .content .img .layer').eq(4),
             $('.services .content .right ul li'),
-            //$('.partners .content .block .item .img'),
+            $('.partners .content .block .item .img'),//
             $('.reasons .content .block .item .num'),
             $('.next_reasons .content .and_yet .circle'),
-            //$('.next_reasons .content .row .col .right .img'),
-            //$('.next_reasons .content .block .col .img'),
+            $('.next_reasons .content .row .col .right .img'),//
+            $('.next_reasons .content .block .col .img'),//
             $('.partners .content .row .col .img'),
             $('.support .content .block ul li'),
-            //$('.work .content p.all_time'),
+            $('.work .content p.all_time'),//
             $('.work .content .block .right span'),
             $('.order .content .block .text p'),
             $('.help .content button'),
@@ -266,7 +266,7 @@ $(document).on('scroll',function(){
             $('.partners .content .block .item p'),
             $('.reasons .content .block .item .text'),
             $('.next_reasons .content .and_yet .line'),
-            //$('.next_reasons .content .row .col p.num'),
+            $('.next_reasons .content .row .col p.num'),//
             $('.reasons .content p'),
             $('.services .content .left .item h1'),
             $('.help .content h1'),
@@ -276,16 +276,16 @@ $(document).on('scroll',function(){
             $('.order .content .block .img p'),
             $('.partners .content .block .item ul li'),
             $('.reasons .content .block .item .text a'),
-            //$('.next_reasons .content .row .col .right p'),
-            //$('.next_reasons .content .block .col .text'),
-            //$('.form .content .form_block form .input'),
-            //$('.form .content .form_block form button')
+            $('.next_reasons .content .row .col .right p'),//
+            $('.next_reasons .content .block .col .text'),//
+            $('.form .content .form_block form .input'),//
+            $('.form .content .form_block form button')//
         ],
         'fadeInRight':[
             $('.first .content .img .layer').eq(1),
-            //$('.order .content .block .img .bg'),
+            $('.order .content .block .img .bg'),//
             $('.next_reasons .content .and_yet h1 span.right'),
-            //$('.partners .content .row .col p'),
+            $('.partners .content .row .col p'),//
             $('.work .content .block .right'),
             $('.form .content .block p.two'),
             $('.support .content .block .right'),
@@ -295,7 +295,7 @@ $(document).on('scroll',function(){
             $('.first .content h1'),
             $('.next_reasons .content .and_yet h1 span.left'),
             $('.reasons .content p b'),
-            //$('.partners .content .row p.title'),
+            $('.partners .content .row p.title'),//
             $('.services .content .left .item p'),
             $('.work .content p.all_time span.time'),
             $('.work .content .block .left'),
@@ -306,7 +306,7 @@ $(document).on('scroll',function(){
             $('.reasons .left_fig')
         ],
         'zoomIn':[
-            //$('.first .content .img .layer').eq(5),
+            $('.first .content .img .layer').eq(5),//
         ]
     }
     for(anim in animated){
