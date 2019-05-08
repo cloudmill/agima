@@ -2066,6 +2066,9 @@ body.overflow {
 .wrapper section.form .content .form_block form .input.pp label a {
   color: #01ac6a;
 }
+.wrapper section.form .content .form_block form .input.drop {
+  z-index: 20;
+}
 .wrapper section.form .content .form_block form .input.adress {
   border-bottom: 0;
 }
@@ -2126,6 +2129,7 @@ body.overflow {
 .wrapper section.form .content .form_block form .input .dropdown-wrapper {
   position: relative;
   width: 100%;
+  z-index: 20;
 }
 .wrapper section.form .content .form_block form .input .dropdown-wrapper.active .list {
   display: flex;
