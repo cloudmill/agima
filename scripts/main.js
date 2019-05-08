@@ -81,12 +81,21 @@ custom = function(){
             $(this).parent().addClass('active') 
         }
     })
-    $(document).on('click','.close',function(){
-        quest = $(this).parent().parent().parent().find('.quest')
-        $(this).parent().removeClass('active')
-        quest.removeClass('active')
-        quest.addClass('hide')
-        quest.parent().removeClass('active')
+    $(document).on('click',function(e){
+        if(!$('.quest').is(e.target)){
+            quest = $('.close').parent().parent().parent().find('.quest')
+            $('.close').parent().removeClass('active')
+            quest.removeClass('active')
+            quest.addClass('hide')
+            quest.parent().removeClass('active')
+        }
+        if(($('.dropdown-wrapper').has(e.target).length === 0)){
+            $('.dropdown-wrapper').find('.list').removeClass('fadeIn')
+            $('.dropdown-wrapper').find('.list').addClass('fadeOut')
+            setTimeout(() => {
+                $('.dropdown-wrapper').removeClass('active')
+            }, 300);
+        }
     })
     $('.open_menu, .menu_list ul li a').click(function(e){
         $('.open_menu').toggleClass('opened')
@@ -132,16 +141,82 @@ custom = function(){
     })
     function circle_fig(){
         for(i =0;i<$('.circle_fig').length;i++){
-            translate = Math.random()*10+'px,'+Math.random()*10;
+            translate = Math.random()*6+'px,'+Math.random()*6;
             item = document.getElementsByClassName('circle_fig')
             item[i].style.transform = 'translate('+translate+'px)'
         }
     }
     setInterval(circle_fig,1000)
+
+
+    $('.dropdown-wrapper .value').click(function(e){
+        //if($(this).parent('.dropdown-wrapper').find('.list').hasClass('fadeOut')){
+            $(this).parent('.dropdown-wrapper').addClass('active')
+            $(this).parent('.dropdown-wrapper').find('.list').toggleClass('fadeIn')
+            $(this).parent('.dropdown-wrapper').find('.list').toggleClass('fadeOut')
+        //}
+    })
+    $('.dropdown-wrapper .list li').click(function(){
+        if($(this).parent().hasClass('many')){
+            $(this).toggleClass('checked')
+            var data = '';
+            for(i=0;i<$(this).parent().find('li.checked').length;i++){
+                data += ($(this).parent().find('li.checked').eq(i).text())
+                if(i+1<$(this).parent().find('li.checked').length)
+                    data +=', '
+            }
+            $(this).parent().parent().find('input').val(data)
+            $(this).parent().parent().find('.inpt').text(data)
+        }
+        else{
+            $(this).parent().parent().find('input').val($(this).text())
+            $(this).parent().parent().find('.inpt').text($(this).text())
+            $(this).parent().find('li').removeClass('checked')
+            $(this).addClass('checked')
+            $(this).parent().toggleClass('fadeIn')
+            $(this).parent().toggleClass('fadeOut')
+            setTimeout(() => {
+                $(this).parent().parent().removeClass('active')
+            }, 600);
+        }
+        if($(this).parent().parent().find('.inpt').text()=='')
+            $(this).parent().parent().find('.inpt').text('Выберите')
+    })
+
+    $('input[name="site_adress"]').change(function(){
+        console.log('sss')
+        var item = document.getElementById('dont_have_site')
+        if($(this).val() == ''){
+            item.disabled = false
+            $('input[name="dont_have_site"]').removeClass('disabled')
+        }else{
+            item.checked = false;
+            item.disabled = true
+            $('input[name="dont_have_site"]').addClass('disabled')
+        }
+    })
+};
+find_in_select = function(){
+    $(document).on('keyup','.dropdown-wrapper .value input',function(e){
+        word = $(this).val().toLowerCase();
+        if(e.keyCode){
+            $(this).parent().parent().find('.list li').hide();
+        for(i=0;i<$(this).parent().parent().find('.list li').length;i++){
+            var str = $(this).parent().parent().find('.list li').eq(i).text().toLowerCase()
+            if(str.indexOf(word)+1){
+                $(this).parent().parent().find('.list li').eq(i).show()
+            }
+        }
+        if(word == ''){
+            $(this).parent().parent().find('.list li').show();
+        }
+        }
+    })
 };
 (function(){
     sliders();
     custom();
+    find_in_select();
 })();
 
 $(window).on('load',function(){
@@ -149,14 +224,15 @@ $(window).on('load',function(){
 
     $('header .content .logo').addClass('animated fadeInDown');
     $('.first .content .img .layer').eq(0).addClass('animated fadeInDown');
-    $('.first .content .img .layer').eq(2).addClass('animated fadeInDown');
+    //$('.first .content .img .layer').eq(2).addClass('animated fadeInDown');
     $('.first .content .img .layer').eq(4).addClass('animated fadeInDown');
     $('.help .content p').addClass('animated fadeInUp')
 
     $('.help .content h1').addClass('animated fadeIn')
     $('.first .content .img .layer').eq(1).addClass('animated fadeInRight');
     $('.first .content h1').addClass('animated fadeInLeft')
-    $('.first .content .img .layer').eq(5).addClass('animated zoomIn');
+
+    //$('.first .content .img .layer').eq(5).addClass('animated zoomIn');
 })
 var value_scroll = 0;
 $(document).on('scroll',function(){
@@ -168,17 +244,17 @@ $(document).on('scroll',function(){
             $('.process .block .item .img'),
             $('header  .content .logo'),
             $('.first .content .img .layer').eq(0),
-            $('.first .content .img .layer').eq(2),
+            //$('.first .content .img .layer').eq(2),
             $('.first .content .img .layer').eq(4),
             $('.services .content .right ul li'),
-            $('.partners .content .block .item .img'),
+            //$('.partners .content .block .item .img'),
             $('.reasons .content .block .item .num'),
             $('.next_reasons .content .and_yet .circle'),
-            $('.next_reasons .content .row .col .right .img'),
-            $('.next_reasons .content .block .col .img'),
+            //$('.next_reasons .content .row .col .right .img'),
+            //$('.next_reasons .content .block .col .img'),
             $('.partners .content .row .col .img'),
             $('.support .content .block ul li'),
-            $('.work .content p.all_time'),
+            //$('.work .content p.all_time'),
             $('.work .content .block .right span'),
             $('.order .content .block .text p'),
             $('.help .content button'),
@@ -190,7 +266,7 @@ $(document).on('scroll',function(){
             $('.partners .content .block .item p'),
             $('.reasons .content .block .item .text'),
             $('.next_reasons .content .and_yet .line'),
-            $('.next_reasons .content .row .col p.num'),
+            //$('.next_reasons .content .row .col p.num'),
             $('.reasons .content p'),
             $('.services .content .left .item h1'),
             $('.help .content h1'),
@@ -198,18 +274,18 @@ $(document).on('scroll',function(){
         'fadeInUp fadeOut':[
             $('.process .block .item .block .two'),
             $('.order .content .block .img p'),
-            $('.partners .content .block .item ul'),
+            $('.partners .content .block .item ul li'),
             $('.reasons .content .block .item .text a'),
-            $('.next_reasons .content .row .col .right p'),
-            $('.next_reasons .content .block .col .text'),
-            $('.form .content .form_block form .input'),
-            $('.form .content .form_block form button')
+            //$('.next_reasons .content .row .col .right p'),
+            //$('.next_reasons .content .block .col .text'),
+            //$('.form .content .form_block form .input'),
+            //$('.form .content .form_block form button')
         ],
         'fadeInRight':[
             $('.first .content .img .layer').eq(1),
-            $('.order .content .block .img .bg'),
+            //$('.order .content .block .img .bg'),
             $('.next_reasons .content .and_yet h1 span.right'),
-            $('.partners .content .row .col p'),
+            //$('.partners .content .row .col p'),
             $('.work .content .block .right'),
             $('.form .content .block p.two'),
             $('.support .content .block .right'),
@@ -219,7 +295,7 @@ $(document).on('scroll',function(){
             $('.first .content h1'),
             $('.next_reasons .content .and_yet h1 span.left'),
             $('.reasons .content p b'),
-            $('.partners .content .row p.title'),
+            //$('.partners .content .row p.title'),
             $('.services .content .left .item p'),
             $('.work .content p.all_time span.time'),
             $('.work .content .block .left'),
@@ -230,7 +306,7 @@ $(document).on('scroll',function(){
             $('.reasons .left_fig')
         ],
         'zoomIn':[
-            $('.first .content .img .layer').eq(5),
+            //$('.first .content .img .layer').eq(5),
         ]
     }
     for(anim in animated){

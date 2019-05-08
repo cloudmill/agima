@@ -337,11 +337,35 @@ body.overflow {
 .wrapper section.first .content .img .layer:nth-child(3) {
   width: 157px;
   height: 106px;
-  background: url(../images/first_section_right_img_4.png) no-repeat 100% 100%;
   position: absolute;
   top: 43px;
   left: -63px;
   z-index: 1;
+}
+.wrapper section.first .content .img .layer:nth-child(3) .fig_1 {
+  position: absolute;
+  top: 26px;
+  left: 0;
+  border-radius: 50%;
+  width: 11px;
+  height: 11px;
+  background-color: #00ac6a;
+}
+.wrapper section.first .content .img .layer:nth-child(3) .fig_2 {
+  width: 61px;
+  top: 0;
+  position: absolute;
+  height: 64px;
+  right: 0;
+  background: url(../images/fig_1_layer.png) no-repeat 100% 100%;
+}
+.wrapper section.first .content .img .layer:nth-child(3) .fig_3 {
+  position: absolute;
+  width: 25px;
+  height: 13px;
+  right: 39px;
+  bottom: 0;
+  background: url(../images/fig_2_layer.png) no-repeat 100% 100%;
 }
 .wrapper section.first .content .img .layer:nth-child(4) {
   width: 48px;
@@ -399,10 +423,25 @@ body.overflow {
 .wrapper section.first .content .scroll_down {
   width: 24px;
   height: 40px;
-  background: url(../images/mouse_green.png) no-repeat 100% 100%;
   position: absolute;
   bottom: 40px;
   left: 0;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper section.first .content .scroll_down svg #rec {
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  position: relative;
+  animation: top_down 1.3s infinite;
+}
+@keyframes top_down {
+  from {
+    transform: translate(0, -2px);
+  }
+  to {
+    transform: translate(0, 4px);
+  }
 }
 .wrapper section.help {
   height: 700px;
@@ -688,7 +727,8 @@ body.overflow {
   border-radius: 50%;
   height: 85px;
   background-color: #f4f7f7;
-  transform: translate(-100%, -100%);
+  margin-left: -85px;
+  margin-top: -85px;
   top: 28px;
   left: -55px;
   z-index: -1;
@@ -1473,7 +1513,7 @@ body.overflow {
   width: 4px;
   background-color: #009f62;
   position: absolute;
-  top: 5px;
+  top: 11px;
   left: -16px;
 }
 .wrapper section.partners .content .block .item .hide_block {
@@ -1639,7 +1679,17 @@ body.overflow {
   font-weight: 700;
   line-height: 36px;
 }
-.wrapper section.reasons .content .block .item .text p a {
+.wrapper section.reasons .content .block .item .text p span.line {
+  color: #202020;
+  font-weight: normal !important;
+  margin: 0 8px;
+  font-size: 24px;
+}
+.wrapper section.reasons .content .block .item .text p span {
+  display: flex;
+  align-items: center;
+}
+.wrapper section.reasons .content .block .item .text p span a {
   color: #00ac6a;
   text-decoration: none;
   font-family: "Circe - Regular";
@@ -1649,10 +1699,15 @@ body.overflow {
   display: flex;
   align-items: center;
 }
-.wrapper section.reasons .content .block .item .text p a span {
-  color: #202020;
-  margin: 0 8px;
-  font-size: 24px;
+.wrapper section.reasons .content .block .item .text p a {
+  color: #00ac6a;
+  text-decoration: none;
+  font-family: "Circe - Regular";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
 }
 .wrapper section.next_reasons {
   background-color: #f8fafa;
@@ -1929,9 +1984,10 @@ body.overflow {
   display: flex;
   align-items: flex-end;
   height: 75px;
+  margin-bottom: 12px;
 }
 .wrapper section.form .content .form_block form .input.file_load label {
-  width: 203px;
+  width: 170px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -1943,6 +1999,7 @@ body.overflow {
   font-size: 14px;
   font-weight: 400;
   line-height: 36px;
+  padding-left: 30px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   position: relative;
@@ -1976,6 +2033,8 @@ body.overflow {
   height: 19px;
   background: url(../images/file.png) no-repeat 100% 100%;
   margin-right: 13px;
+  position: absolute;
+  left: 12px;
 }
 .wrapper section.form .content .form_block form .input.file_load input {
   display: none;
@@ -2016,6 +2075,16 @@ body.overflow {
 .wrapper section.form .content .form_block form .input.adress .col:last-child {
   border-bottom: 0;
 }
+.wrapper section.form .content .form_block form .input.adress .col .input input.disabled + label {
+  color: #aaaaaa;
+}
+.wrapper section.form .content .form_block form .input.adress .col .input input.disabled + label:before {
+  background-color: #aaaaaa;
+}
+.wrapper section.form .content .form_block form .input.other {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+}
 .wrapper section.form .content .form_block form .input .error {
   display: none;
   position: absolute;
@@ -2034,10 +2103,11 @@ body.overflow {
   font-size: 15px;
   line-height: 36px;
   margin-bottom: 15px;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .wrapper section.form .content .form_block form .input input,
 .wrapper section.form .content .form_block form .input select {
-  color: #aaaaaa;
+  color: #202020;
   font-size: 15px;
   line-height: 36px;
   font-family: "Circe - Regular";
@@ -2045,9 +2115,128 @@ body.overflow {
   border: 0;
   width: 100%;
 }
+.wrapper section.form .content .form_block form .input input::placeholder,
+.wrapper section.form .content .form_block form .input select::placeholder {
+  color: #aaaaaa;
+}
 .wrapper section.form .content .form_block form .input select {
   margin: 7px 0;
   background-color: transparent;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper.active .list {
+  display: flex;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper.active .value::before {
+  transform: translate(0, -50%) rotate(180deg);
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .animated {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .value {
+  width: 100%;
+  position: relative;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .value .inpt {
+  color: #202020;
+  font-size: 15px;
+  line-height: 36px;
+  font-family: "Circe - Regular";
+  font-weight: 400;
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .value input {
+  display: none;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .value:before {
+  content: '';
+  position: absolute;
+  display: block;
+  right: 14px;
+  top: 50%;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translate(0, -50%);
+  width: 7px;
+  height: 4px;
+  background: url(../images/gr_req.png) no-repeat 100% 100%;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .list {
+  z-index: 51;
+  position: absolute;
+  top: 100%;
+  width: calc(100% - 54px);
+  margin: 0;
+  margin-top: -1px;
+  left: 0;
+  display: none;
+  padding: 27px;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  border-top: 1px solid #01ac6a;
+  list-style: none;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .list.many li.checked {
+  display: flex;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .list.many li.checked:after {
+  opacity: 1;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .list.many li:before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #d9d9d9;
+  background-color: #ffffff;
+  margin-right: 10px;
+  border-radius: 0;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .list.many li:after {
+  content: '';
+  opacity: 0;
+  display: block;
+  width: 8px;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  height: 6px;
+  background-image: url(../images/check.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 5px;
+  top: 6px;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .list li {
+  color: #202020;
+  font-family: Circe;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .list li:last-child {
+  margin-bottom: 0;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .list li.checked {
+  display: none;
+}
+.wrapper section.form .content .form_block form .input .dropdown-wrapper .list li::before {
+  content: "";
+  display: block;
+  height: 4px;
+  border-radius: 50%;
+  width: 4px;
+  background-color: #009f62;
+  margin-right: 10px;
 }
 .wrapper section.form .content .form_block form .input .row {
   display: flex;
@@ -2056,13 +2245,21 @@ body.overflow {
 .wrapper section.form .content .form_block form .input .row .col {
   width: calc(50% - 15px);
 }
-.wrapper section.form .content .form_block form .input .text {
-  color: #aaaaaa;
+.wrapper section.form .content .form_block form .input textarea {
+  height: 87px;
+  overflow: hidden;
+  color: #202020;
   font-family: Circe;
   font-size: 15px;
   font-weight: 400;
   line-height: 24px;
+  border: 0;
+  width: 100%;
   margin-bottom: 10px;
+  resize: none;
+}
+.wrapper section.form .content .form_block form .input textarea::placeholder {
+  color: #aaaaaa;
 }
 .wrapper section.form .content .form_block form .input #dont_have_site {
   display: none;
@@ -2321,6 +2518,9 @@ body.overflow {
 .circle_fig {
   transition: transform 2s;
   transform: translate(0, 0);
+}
+a {
+  text-decoration: none;
 }
 @media (max-width: 1440px) {
   .wrapper section.help .content h1 {
