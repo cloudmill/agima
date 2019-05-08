@@ -94,6 +94,7 @@ custom = function(){
             $('.dropdown-wrapper').find('.list').addClass('fadeOut')
             setTimeout(() => {
                 $('.dropdown-wrapper').removeClass('active')
+                $('.input').removeClass('drop')
             }, 300);
         }
     })
@@ -151,9 +152,12 @@ custom = function(){
 
     $('.dropdown-wrapper .value').click(function(e){
         //if($(this).parent('.dropdown-wrapper').find('.list').hasClass('fadeOut')){
-            $(this).parent('.dropdown-wrapper').addClass('active')
-            $(this).parent('.dropdown-wrapper').find('.list').toggleClass('fadeIn')
-            $(this).parent('.dropdown-wrapper').find('.list').toggleClass('fadeOut')
+            $('.input').removeClass('drop')
+            $('.input .dropdown-wrapper').removeClass('active')
+            $(this).parent('.dropdown-wrapper').toggleClass('active')
+            $(this).parent().parent('.input').toggleClass('drop')
+            $(this).parent('.dropdown-wrapper').find('.list').addClass('fadeIn')
+            $(this).parent('.dropdown-wrapper').find('.list').removeClass('fadeOut')
         //}
     })
     $('.dropdown-wrapper .list li').click(function(){
@@ -177,6 +181,7 @@ custom = function(){
             $(this).parent().toggleClass('fadeOut')
             setTimeout(() => {
                 $(this).parent().parent().removeClass('active')
+                $(this).parent().parent().parent().removeClass('drop')
             }, 600);
         }
         if($(this).parent().parent().find('.inpt').text()=='')
