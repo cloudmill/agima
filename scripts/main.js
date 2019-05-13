@@ -263,7 +263,6 @@ $(document).on('scroll',function(){
     var animated = {
         'fadeInUp' : [
             $('.process .block .item .img'),
-            $('header  .content .logo'),
             $('.first .content .img .layer').eq(0),
             $('.first .content .img .layer').eq(2),//
             $('.first .content .img .layer').eq(4),
@@ -334,7 +333,6 @@ $(document).on('scroll',function(){
         animated = {
             'fadeInUp' : [
                 $('.process .block .item .img'),
-                $('header  .content .logo'),
                 $('.first .content .img .layer').eq(0),
                 $('.first .content .img .layer').eq(4),
                 $('.partners .content .block .item .img'),//

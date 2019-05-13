@@ -46,9 +46,10 @@ body {
 .wrapper {
   overflow: hidden;
   header {
-    position: absolute;
+    position: fixed;
+    background-color:#fff;
     z-index: 4;
-    padding: 50px 0;
+    padding: 35px 0;
     top: 0;
     left: 0;
     width: 100%;
@@ -1171,7 +1172,7 @@ body {
           width: ~"calc(50% + 160px)";
           ul {
             list-style: none;
-            display: flex;
+            display: flex !important;
             flex-wrap: wrap;
             justify-content: flex-start;
             width: 100%;
@@ -1186,8 +1187,8 @@ body {
               position: relative;
               flex-basis: ~"calc(50% - 35px)";
               margin-top: 30px;
-              &:nth-child(even) {
-                margin-left: 70px;
+              &:nth-child(odd) {
+                margin-right: 70px;
               }
               &:before {
                 content: "";

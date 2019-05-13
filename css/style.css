@@ -46,9 +46,10 @@ body.overflow {
   overflow: hidden;
 }
 .wrapper header {
-  position: absolute;
+  position: fixed;
+  background-color: #fff;
   z-index: 4;
-  padding: 50px 0;
+  padding: 35px 0;
   top: 0;
   left: 0;
   width: 100%;
@@ -1147,7 +1148,7 @@ body.overflow {
 }
 .wrapper section.services .content .right ul {
   list-style: none;
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
@@ -1164,8 +1165,8 @@ body.overflow {
   flex-basis: calc(50% - 35px);
   margin-top: 30px;
 }
-.wrapper section.services .content .right ul li:nth-child(even) {
-  margin-left: 70px;
+.wrapper section.services .content .right ul li:nth-child(odd) {
+  margin-right: 70px;
 }
 .wrapper section.services .content .right ul li:before {
   content: "";
