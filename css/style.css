@@ -489,6 +489,7 @@ body.overflow {
 .wrapper section.help .content button {
   width: 176px;
   height: 60px;
+  border-radius: 30px;
   border: 0;
   background-color: #ffffff;
   color: #202020;
@@ -1037,6 +1038,10 @@ body.overflow {
   position: relative;
   z-index: 3;
 }
+.wrapper section.services .content .left .slick-track {
+  display: flex;
+  align-items: center;
+}
 .wrapper section.services .content .left .item {
   position: relative;
 }
@@ -1046,7 +1051,8 @@ body.overflow {
   font-size: 400px;
   font-weight: 400;
   margin: 0;
-  line-height: 140px;
+  height: 50px;
+  line-height: 110px;
   top: -90px;
   z-index: -1;
   position: absolute;
@@ -1076,7 +1082,7 @@ body.overflow {
 }
 .wrapper section.services .content .left .slick-next {
   position: absolute;
-  top: 150px;
+  top: 90px;
   cursor: pointer;
   right: 130px;
   border: 0;
@@ -2475,8 +2481,7 @@ body.overflow {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  min-height: 1200px;
+  height: 100vh;
 }
 .preload .object {
   width: 200px;
@@ -2973,7 +2978,7 @@ a {
     margin-top: 100px;
   }
   .wrapper header .menu_list .content ul li {
-    margin-bottom: 30px;
+    margin-bottom: 27px;
   }
   .wrapper header .menu_list .content ul li a {
     color: #ffffff;

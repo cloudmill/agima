@@ -16,6 +16,17 @@ sliders = function(){
             }
           ]
     })
+    $('.services .content .right').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1000,
+        daptiveHeight: true,
+        swipe: false,
+        arrows: false,
+        dots : false,
+        infinite: true,
+        fade: true
+    })
     if($(document).width() <= 1024){
         $('section.partners .content .block').slick({
             slidesToShow: 1,
@@ -42,6 +53,11 @@ sliders = function(){
             infinite: true,
         })
     }
+    $('.services .left').on('beforeChange', function(event, slick,currentSlide , nextSlide){
+        $('.services .content .right').slick('slickGoTo', nextSlide);
+    });
+
+
     $('section.partners .content .block').on('afterChange', function(event, slick,currentSlide , nextSlide){
         $('section.partners .content .slider_count').html(currentSlide+1+"<span>/"+($("section.partners .content .block").slick("getSlick").slideCount)+"</span>");
     });
@@ -313,6 +329,60 @@ $(document).on('scroll',function(){
         'zoomIn':[
             $('.first .content .img .layer').eq(5),//
         ]
+    }
+    if($(window).width()<768){
+        animated = {
+            'fadeInUp' : [
+                $('.process .block .item .img'),
+                $('header  .content .logo'),
+                $('.first .content .img .layer').eq(0),
+                $('.first .content .img .layer').eq(4),
+                $('.partners .content .block .item .img'),//
+                $('.reasons .content .block .item .num'),
+                $('.next_reasons .content .and_yet .circle'),
+                $('.partners .content .row .col .img'),
+                $('.help .content button'),
+                $('.help .content p'),
+            ],
+            'fadeIn':[
+                $('.process .block .item .block .one'),
+                $('.process .block .item .block .num'),
+                $('.partners .content .block .item p'),
+                $('.reasons .content .block .item .text'),
+                $('.next_reasons .content .and_yet .line'),
+                $('.next_reasons .content .row .col p.num'),//
+                $('.reasons .content p'),
+                $('.services .content .left .item h1'),
+                $('.help .content h1'),
+            ],
+            'fadeInUp fadeOut':[
+                $('.process .block .item .block .two'),
+                $('.reasons .content .block .item .text a'),
+            ],
+            'fadeInRight':[
+                $('.first .content .img .layer').eq(1),
+                $('.order .content .block .img .bg'),//
+                $('.next_reasons .content .and_yet h1 span.right'),
+                $('.partners .content .row .col p'),//
+                $('.support .content .block .right'),
+                $('.form .word')
+            ],
+            'fadeInLeft':[
+                $('.first .content h1'),
+                $('.next_reasons .content .and_yet h1 span.left'),
+                $('.reasons .content p b'),
+                $('.partners .content .row p.title'),//
+                $('.services .content .left .item p'),
+                $('.work .content p.all_time span.time'),
+                $('.work .content .block .left'),
+                $('.process .content h1'),
+                $('.support .content p.title'),
+                $('.support .content .block .left'),
+                $('.reasons .left_fig')
+            ],
+            'zoomIn':[
+            ]
+        }
     }
     for(anim in animated){
         var an_out_up = 'fadeOutUp',
