@@ -20,8 +20,8 @@ sliders = function(){
         slidesToShow: 1,
         slidesToScroll: 1,
         speed: 1000,
-        adaptiveHeight: true,
-        swipe: false,
+        adaptiveHeight: false,
+        swipe: true,
         arrows: false,
         dots : false,
         infinite: true,
@@ -54,6 +54,8 @@ sliders = function(){
         })
     }
     $('.services .left').on('beforeChange', function(event, slick,currentSlide , nextSlide){
+        if($(window).width()<1024)
+            $('.services .content .right .slick-list').height($('.services .content .right .slick-list .slick-slide').eq(nextSlide).find('ul').height())
         $('.services .content .right').slick('slickGoTo', nextSlide);
     });
 
@@ -338,7 +340,6 @@ $(document).on('scroll',function(){
             ],
             'fadeIn':[
                 $('.next_reasons .content .and_yet .line'),
-                $('.next_reasons .content .row .col p.num'),//
             ],
             'fadeInUp fadeOut':[
             ],

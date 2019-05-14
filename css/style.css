@@ -1146,6 +1146,9 @@ body.overflow {
   z-index: 3;
   width: calc(50% + 160px);
 }
+.wrapper section.services .content .right .slick-list {
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
 .wrapper section.services .content .right ul {
   list-style: none;
   display: flex !important;

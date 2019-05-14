@@ -1170,6 +1170,9 @@ body {
           position: relative;
           z-index: 3;
           width: ~"calc(50% + 160px)";
+          .slick-list{
+            transition: @anim;
+          }
           ul {
             list-style: none;
             display: flex !important;
@@ -3511,6 +3514,7 @@ a{
           }
           .right{
             width: 100%;
+            
             ul{
               padding: 0 20px;
               width: ~'calc(100% - 40px)';
