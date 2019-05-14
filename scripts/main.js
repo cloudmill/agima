@@ -20,7 +20,7 @@ sliders = function(){
         slidesToShow: 1,
         slidesToScroll: 1,
         speed: 1000,
-        daptiveHeight: true,
+        adaptiveHeight: true,
         swipe: false,
         arrows: false,
         dots : false,
